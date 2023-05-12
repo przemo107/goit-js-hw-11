@@ -113,3 +113,15 @@ function renderImages(images) {
   });
   lightbox.refresh();
 }
+
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionPosition: 'bottom',
+  captionDelay: 250,
+});
+
+loadMoreBtn.addEventListener('click', () => {
+  page += 1;
+  const searchValue = searchInput.value;
+  fetchImages(searchValue);
+});
