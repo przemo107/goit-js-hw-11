@@ -6,10 +6,10 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const formElement = document.querySelector('form#search-form');
 const searchInput = document.querySelector('input');
-const gallery = document.querySelector('gallery');
-const loadMoreBtn = document.querySelector('load-more');
+const gallery = document.querySelector('.gallery');
+const loadMoreBtn = document.querySelector('.load-more');
 
-const APIKey = '28547328-93a8d2ad13e96b0d78b6f83cd';
+const APIKey = '33145437-994e290732205a7e04a0a5ef4';
 let page = 1;
 let totalPages;
 loadMoreBtn.setAttribute('hidden', 'hidden');
@@ -20,7 +20,7 @@ function submitHandler(event) {
   event.preventDefault();
   gallery.innerHTML = null;
   page = 1;
-  let searchValue = searchInput.value.toLowerCase().split('').join('+');
+  let searchValue = searchInput.value.toLowerCase().split(' ').join('+');
 
   if (searchValue === '') {
     Notiflix.Notify.failure('Search field can`t be empty');
@@ -31,7 +31,7 @@ function submitHandler(event) {
 
 async function fetchImages(searchValue) {
   try {
-    const response = await axios.get(`https://pixabay.com/api/`, {
+    const response = await axios.get('https://pixabay.com/api/?', {
       params: {
         key: APIKey,
         q: searchValue,
@@ -90,15 +90,16 @@ function renderImages(images) {
       'beforeend',
       `
     <div class="photo-card">
-    <div class="img-container">
-    <a href="${image.webformatURL}" alt="${image.tags}" loading="lazy" />
-    </a>
-    </div>
-    <div class="info">
-    <p class="info-item">
-    <b>Likes</b> ${image.likes}
-    </p>
-    <p class="info-item">
+      <div class="img-container">
+        <a href="${image.largeImageURL}">
+          <img src="${image.webformatURL}" alt="${image.tags}" loading="lazy" />
+        </a>
+      </div>
+      <div class="info">
+        <p class="info-item">
+          <b>Likes</b> ${image.likes}
+        </p>
+        <p class="info-item">
           <b>Views</b> ${image.views}
         </p>
         <p class="info-item">
