@@ -24,29 +24,29 @@ body {
   border-radius: 5%;
 }
 
-.search-form-container {
-  border-bottom: 1px solid #ececec;
+.search-wrapper {
+  border-bottom: 3px solid #000000;
   margin: 0 auto;
   text-align: center;
-  background-color: #404040;
+  background-color: #5c854c;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.search-form-container h1 {
+.search-wrapper h1 {
   color: #efefef;
-  padding: 20px;
+  padding: 25px;
 }
 
 .search-form {
-  padding: 20px;
+  padding: 25px;
 }
 
 input {
   border: 1px solid #efefef;
   border-radius: 5px;
   width: 500px;
-  padding: 6px;
+  padding: 10px;
   border-top-right-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -57,12 +57,18 @@ input:focus {
 
 button {
   border: 1px solid #efefef;
-  padding: 6px;
+  padding: 10px;
   border-radius: 5px;
   border-top-left-radius: 0;
   border-bottom-right-radius: 0;
   cursor: pointer;
   margin-left: -5px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(218, 199, 30);
+  font-weight: 600;
 }
 
 .gallery {
